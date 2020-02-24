@@ -1,0 +1,40 @@
+{
+  "name": "@authrocket/authrocket-node",
+  "version": "0.9.0",
+  "private": false,
+  "license": "MIT",
+  "description": "AuthRocket library for Node",
+  "keywords": [
+    "authrocket",
+    "auth",
+    "authentication",
+    "api"
+  ],
+  "homepage": "https://authrocket.com/",
+  "author": "AuthRocket Team",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/authrocket/authrocket-node"
+  },
+  "bugs": {
+    "url": "https://github.com/authrocket/authrocket-node/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "module": "lib/authrocket.js",
+  "files": [
+    "lib/*.js"
+  ],
+  "dependencies": {
+    "axios": "~0.19.2",
+    "jsrsasign": "^8.0.12"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1"
+  },
+  "scripts": {
+    "test": "mocha ./test/setup.js './test/*test.js'"
+  }
+}

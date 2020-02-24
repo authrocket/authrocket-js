@@ -1,0 +1,6 @@
+# see: https://github.com/mochajs/mocha/blob/master/example/config/.mocharc.yml
+
+ignore: []
+reporter: spec
+slow: 400
+ui: tdd
