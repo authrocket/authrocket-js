@@ -14,7 +14,8 @@
   "author": "AuthRocket Team",
   "repository": {
     "type": "git",
-    "url": "git://github.com/authrocket/authrocket-node"
+    "url": "git://github.com/authrocket/authrocket-node",
+    "directory": "authrocket-node"
   },
   "bugs": {
     "url": "https://github.com/authrocket/authrocket-node/issues"
