@@ -28,7 +28,7 @@ class RecordNotFound extends AuthRocketError {}
 
 class AuthRocket {
 
-  constructor(params={}, options={}){
+  constructor(params={}, options={}) {
     this.VERSION = require('../package.json').version
     let config = {}
     if (!options.skipAutoConfig) {
@@ -37,13 +37,15 @@ class AuthRocket {
         apiKey:  process.env.AUTHROCKET_API_KEY,
         realm:   process.env.AUTHROCKET_REALM,
         service: process.env.AUTHROCKET_SERVICE,
-        jwtKey:  process.env.AUTHROCKET_JWT_KEY
+        jwtKey:  process.env.AUTHROCKET_JWT_KEY,
+        loginrocketUrl: process.env.LOGINROCKET_URL,
       }
     }
     Object.assign(config, params)
 
     this.config = {}
     this.defaultJwtKey = config.jwtKey
+    this.config.loginrocketUrl = config.loginrocketUrl
     this.config.headers = {
       'Accept-Encoding': 'gzip, deflate',
       'Content-Type': 'application/json',
@@ -63,16 +65,22 @@ class AuthRocket {
   }
 
 
-  get defaultJwtKey(){
+  get defaultJwtKey() {
     return this.config.jwtKey
   }
 
-  set defaultJwtKey(jwtKey){
+  set defaultJwtKey(jwtKey) {
     this.config.jwtKey = jwtKey
   }
 
-  set defaultRealm(realmId){
+  set defaultRealm(realmId) {
     this.config.headers['Authrocket-Realm'] = realmId
+  }
+
+  get loginrocketUrl() {
+    if (!this.config.loginrocketUrl)
+      throw new AuthRocketError("Missing AR loginrocketUrl: set LOGINROCKET_URL or AuthRocket({loginrocketUrl: ...})")
+    return new URL(this.config.loginrocketUrl)
   }
 
 
@@ -185,8 +193,11 @@ module.exports = {
 
 const resources = {
   authProviders: require('./auth_provider'),
+  clientApps: require('./client_app'),
   credentials: require('./credential'),
+  domains: require('./domain'),
   invitations: require('./invitation'),
+  loginrocket: require('./loginrocket'),
   memberships: require('./membership'),
   orgs: require('./org'),
   realms: require('./realm'),

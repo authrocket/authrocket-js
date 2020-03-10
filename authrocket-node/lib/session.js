@@ -5,17 +5,32 @@ const { KEYUTIL, KJUR, b64utoutf8 } = require('jsrsasign')
 
 class Session extends Resource {
 
+  // reminder: expires_at and other dates are seconds, not milliseconds
+  //   to convert to js date:  new Date(sess.expires_at*1000)
+
   constructor(client) {
     super(client)
     this.path        = 'sessions'
     this.rootElement = 'session'
   }
 
-  fromToken(token, params={}) {
+  async fromToken(token, params={}) {
+    if (!this.client.defaultJwtKey && this.client.config.loginrocketUrl) {
+      return await this.fromTokenWithDynamicKey(token, params)
+    } else {
+      let jwtKey = this.client.defaultJwtKey
+      return new Promise((resolve, reject)=>{
+        resolve(this.fromTokenWithStaticKey(token, params))
+      })
+    }
+  }
+
+  // @private
+  fromTokenWithStaticKey(token, params={}) {
     let algo = []
     let jwtKey = this.client.defaultJwtKey
     if (!jwtKey)
-      throw new AuthRocketError("Missing AR jwtKey: set AUTHROCKET_JWT_KEY or AuthRocket({jwtKey: ...})")
+      throw new AuthRocketError("Missing AR jwtKey: set LOGINROCKET_URL, AUTHROCKET_JWT_KEY, or AuthRocket({loginrocketUrl: ... or jwtKey: ...})")
     jwtKey = jwtKey.trim()
 
     if (jwtKey.length > 256) {
@@ -34,6 +49,34 @@ class Session extends Resource {
       jwtKey = {utf8: jwtKey}
     }
 
+    return this.verifyAndParse(token, jwtKey, algo)
+  }
+
+  // @private
+  async fromTokenWithDynamicKey(token, params={}) {
+    if (!token) return null
+    try {
+      var jwtHeader = KJUR.jws.JWS.readSafeJSONString(b64utoutf8(token.split(".")[0]))
+    } catch (e) {
+      // unable to parse
+      return null
+    }
+    if (!jwtHeader || !jwtHeader.kid) return null
+    var kid = jwtHeader.kid
+    var jwk
+    if (jwk = this.client.loginrocket.globalJwkSet[kid]) {
+      return this.verifyAndParse(token, jwk.key, [jwk.algo])
+    }
+
+    var newCerts = await this.client.loginrocket.loadJwkSet()
+    if (jwk = newCerts[kid]) {
+      return this.verifyAndParse(token, jwk.key, [jwk.algo])
+    }
+    return null
+  }
+
+  // @private
+  verifyAndParse(token, jwtKey, algo) {
     // verifyJWT() doesn't handle parsing errors well, so handle it ahead of time
     try {
       var jwtHeader  = KJUR.jws.JWS.readSafeJSONString(b64utoutf8(token.split(".")[0]))
@@ -53,7 +96,6 @@ class Session extends Resource {
       return null
     }
   }
-
 
   // @private
   jwtToSession(jwt, token) {

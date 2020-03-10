@@ -2,6 +2,7 @@ assert = require('chai').use(require('./assertions')).assert
 h = require('./helper')
 const { AuthRocketError } = require('../lib/authrocket')
 const Response = require('../lib/response')
+const { KEYUTIL } = require('jsrsasign')
 
 
 suite('Session', ()=>{
@@ -32,10 +33,11 @@ suite('Session', ()=>{
   })
 
 
-  test('fromToken - missing jwtKey', ()=>{
+  test('fromToken - missing jwtKey and loginrocketUrl', async ()=>{
     h.client.defaultJwtKey = null
+    h.client.config.loginrocketUrl = null
     try {
-      h.client.sessions.fromToken(h.session.token)
+      let res = await h.client.sessions.fromToken(h.session.token)
     } catch (e) {
       assert.instanceOf(e, AuthRocketError)
       return
@@ -52,38 +54,56 @@ suite('Session', ()=>{
     await h.createSession()
 
     h.client.defaultJwtKey = 'wrong-key'
-    let res = h.client.sessions.fromToken(h.session.token)
+    let res = await h.client.sessions.fromToken(h.session.token)
     assert.equal(res, null)
 
     assert.match(realm.jwt_key, /^jsk_/)
     h.client.defaultJwtKey = realm.jwt_key
-    res = h.client.sessions.fromToken('blahblah')
+    res = await h.client.sessions.fromToken('blahblah')
     assert.equal(res, null)
 
-    res = h.client.sessions.fromToken(h.session.token)
-    assert(res instanceof Response)
+    res = await h.client.sessions.fromToken(h.session.token)
+    assert.instanceOf(res, Response)
     assert.equal(res.object, 'session')
     assert.equal(res.user.object, 'user')
     assert.equal(res.user.memberships[0].object, 'membership')
     assert.equal(res.user.memberships[0].org.object, 'org')
   })
 
-  test('fromToken RS256', ()=>{
+  test('fromToken RS256', async ()=>{
     let realm = h.realm
     assert.match(realm.jwt_key, /PUBLIC KEY/)
     h.client.defaultJwtKey = realm.jwt_key
-    let res = h.client.sessions.fromToken('blahblah')
+    let res = await h.client.sessions.fromToken('blahblah')
     assert.equal(res, null)
 
-    res = h.client.sessions.fromToken(h.session.token)
-    assert(res instanceof Response)
+    res = await h.client.sessions.fromToken(h.session.token)
+    assert.instanceOf(res, Response)
     assert.equal(res.object, 'session')
     assert.equal(res.user.object, 'user')
 
     const shortKey = realm.jwt_key.replace(/-{5}(BEGIN|END) PUBLIC KEY-{5}/g, '').replace(/\n/g, '')
     h.client.defaultJwtKey = shortKey
-    res = h.client.sessions.fromToken(h.session.token)
-    assert(res instanceof Response)
+    res = await h.client.sessions.fromToken(h.session.token)
+    assert.instanceOf(res, Response)
+    assert.equal(res.object, 'session')
+    assert.equal(res.user.object, 'user')
+  })
+
+  test('fromToken dynamic', async ()=>{
+    await h.createClientApp()
+    await h.createDomain()
+    let realm = h.realm
+    let lrUrl = h.client.loginrocketUrl
+    lrUrl.hostname = h.domain.fqdn
+    h.client.config.loginrocketUrl = lrUrl.href
+
+    let res = await h.client.sessions.fromToken('blahblah')
+    assert.equal(res, null)
+
+    res = await h.client.sessions.fromToken(h.session.token)
+    assert.isAtLeast(Object.keys(h.client.loginrocket.globalJwkSet).length, 1, 'globalJwkSet should be populated')
+    assert.instanceOf(res, Response)
     assert.equal(res.object, 'session')
     assert.equal(res.user.object, 'user')
   })

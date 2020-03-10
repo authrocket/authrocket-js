@@ -12,6 +12,8 @@ class Helper {
   }
 
   get authProvider(){ return this.resources['authProvider'] }
+  get clientApp(){ return this.resources['clientApp'] }
+  get domain(){ return this.resources['domain'] }
   get invitation(){ return this.resources['invitation'] }
   get membership(){ return this.resources['membership'] }
   get org(){ return this.resources['org'] }
@@ -20,6 +22,8 @@ class Helper {
   get user(){ return this.resources['user'] }
 
   set authProvider(v){ this.resources['authProvider'] = v }
+  set clientApp(v){ this.resources['clientApp'] = v }
+  set domain(v){ this.resources['domain'] = v }
   set invitation(v){ this.resources['invitation'] = v }
   set membership(v){ this.resources['membership'] = v }
   set org(v){ this.resources['org'] = v }
@@ -74,6 +78,26 @@ class Helper {
     })
     assert.noErrors(res)
     assert.equal(res.object, 'auth_provider')
+  }
+
+
+  async createClientApp() {
+    const res = this.clientApp = await this.client.clientApps.create({
+      client_type: 'standard',
+      name: 'ar-node-sdk',
+      redirect_uris: ['http://localhost:3000/']
+    })
+    assert.noErrors(res)
+    assert.equal(res.object, 'client_app')
+  }
+
+
+  async createDomain() {
+    const res = this.domain = await this.client.domains.create({
+      domain_type: 'loginrocket'
+    })
+    assert.noErrors(res)
+    assert.equal(res.object, 'domain')
   }
 
 
