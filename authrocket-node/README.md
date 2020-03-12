@@ -4,6 +4,8 @@
 
 The `authrocket-node` library covers all of our Core API. It also covers select portions of the Configuration API.
 
+See also `authrocket-middleware` for our streamlined integration with Express and other compatible frameworks.
+
 
 ## Installation
 

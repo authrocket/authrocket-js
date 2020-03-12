@@ -4,4 +4,5 @@
 
 This is a monorepo for all AuthRocket Node.js-related packages. See each package's README for more.
 
+* [authrocket-middleware](authrocket-middleware) - Auth middleware for Express & compatible frameworks
 * [authrocket-node](authrocket-node) - API library for Node.js

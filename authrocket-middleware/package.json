@@ -1,0 +1,34 @@
+{
+  "name": "@authrocket/authrocket-middleware",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "description": "AuthRocket middleware for Express & compatible frameworks",
+  "keywords": [
+    "authrocket",
+    "auth",
+    "authentication",
+    "express",
+    "middleware"
+  ],
+  "homepage": "https://authrocket.com/",
+  "author": "AuthRocket Team",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/authrocket/authrocket-node",
+    "directory": "authrocket-middleware"
+  },
+  "bugs": {
+    "url": "https://github.com/authrocket/authrocket-node/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "lib/middleware.js",
+  "files": [
+    "lib/*.js"
+  ],
+  "dependencies": {
+    "@authrocket/authrocket-node": "^1"
+  }
+}
