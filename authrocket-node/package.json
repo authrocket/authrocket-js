@@ -1,6 +1,6 @@
 {
   "name": "@authrocket/authrocket-node",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "description": "AuthRocket library for Node",
