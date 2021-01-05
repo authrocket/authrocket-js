@@ -28,7 +28,7 @@
     "lib/*.js"
   ],
   "dependencies": {
-    "axios": "~0.19.2",
+    "axios": "~0.21.1",
     "jsrsasign": "^8.0.12"
   },
   "devDependencies": {
