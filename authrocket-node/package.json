@@ -15,7 +15,7 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/authrocket/authrocket-node",
-    "directory": "authrocket-node"
+    "directory": "tree/master/authrocket-node"
   },
   "bugs": {
     "url": "https://github.com/authrocket/authrocket-node/issues"

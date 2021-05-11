@@ -16,7 +16,7 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/authrocket/authrocket-node",
-    "directory": "authrocket-middleware"
+    "directory": "tree/master/authrocket-middleware"
   },
   "bugs": {
     "url": "https://github.com/authrocket/authrocket-node/issues"
