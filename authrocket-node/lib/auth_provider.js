@@ -10,7 +10,7 @@ class AuthProvider extends Resource {
 
   // params = {
   //   redirect_uri: 'https://...',
-  //   nonce:        'randomeString'  // optional
+  //   nonce:        'randomString'  // optional
   // }
   authorizeUrls(params={}) {
     const path = `${this.path}/authorize`
@@ -19,7 +19,7 @@ class AuthProvider extends Resource {
 
   // params = {
   //   redirect_uri: 'https://...',
-  //   nonce:        'randomeString'  // optional
+  //   nonce:        'randomString'  // optional
   // }
   authorizeUrl(id, params={}) {
     if (!id)
@@ -30,7 +30,7 @@ class AuthProvider extends Resource {
 
   // params = {
   //   code:  '...',
-  //   nonce: 'randomeString',  // optional
+  //   nonce: 'randomString',  // optional
   //   state: '...'
   // }
   authorize(params={}) {
@@ -40,7 +40,7 @@ class AuthProvider extends Resource {
 
   // params = {
   //   code:  '...',
-  //   nonce: 'randomeString',  // optional
+  //   nonce: 'randomString',  // optional
   //   state: '...'
   // }
   authorizeToken(id, params={}) {

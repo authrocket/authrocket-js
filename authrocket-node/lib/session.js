@@ -18,7 +18,6 @@ class Session extends Resource {
     if (!this.client.defaultJwtKey && this.client.config.loginrocketUrl) {
       return await this.fromTokenWithDynamicKey(token, params)
     } else {
-      let jwtKey = this.client.defaultJwtKey
       return new Promise((resolve, reject)=>{
         resolve(this.fromTokenWithStaticKey(token, params))
       })

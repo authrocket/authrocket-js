@@ -6,7 +6,7 @@ const { KEYUTIL } = require('jsrsasign')
 class LoginRocket extends Resource {
 
   // @private
-  loadJwkSet(useCached) {
+  loadJwkSet() {
     let uri = this.client.loginrocketUrl
     uri.pathname = '/connect/jwks'
 
