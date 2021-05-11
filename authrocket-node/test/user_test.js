@@ -82,7 +82,7 @@ suite('User', ()=>{
     let res = await h.client.users.authenticate(h.user.id, {
       password: 'wrong'
     })
-    assert.match(res.errorMessages(), /Password is invalid/)
+    assert.match(res.errorMessages(), /Login failed/)
 
     res = await h.client.users.authenticate(h.user.id, {
       password: 'quick-fox-jumped-over-the-moon'

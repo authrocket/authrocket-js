@@ -45,8 +45,16 @@ suite('Org', ()=>{
     assert.equal(res.name, 'new name')
   })
 
-  test('delete', async ()=>{
+  test('delete - close', async ()=>{
     res = await h.client.orgs.delete(h.org.id)
+    assert.noErrors(res)
+    assert.equal(res.state, 'closed')
+  })
+
+  test('delete - delete', async ()=>{
+    res = await h.client.orgs.delete(h.org.id, {
+      force: true
+    })
     assert.noErrors(res)
 
     res = await h.client.orgs.all()
