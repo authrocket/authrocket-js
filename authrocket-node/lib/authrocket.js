@@ -52,6 +52,7 @@ class AuthRocket {
       'User-Agent': `AuthRocket/node v${this.VERSION}`,
       'Authrocket-Api-Key': config.apiKey
     }
+    this.locale = config.locale
     if (config.service)
       this.config.headers['Authrocket-Service'] = config.service
     if (config.realm)
@@ -75,6 +76,13 @@ class AuthRocket {
 
   set defaultRealm(realmId) {
     this.config.headers['Authrocket-Realm'] = realmId
+  }
+
+  set locale(locale) {
+    if (locale)
+      this.config.headers['Accept-Language'] = locale
+    else
+      delete this.config.headers['Accept-Language']
   }
 
   get loginrocketUrl() {

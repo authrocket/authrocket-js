@@ -72,6 +72,14 @@ const authrocket = new AuthRocket({
 })
 ```
 
+Similarly, if changing locales between requests, build a new client for each:
+
+```js
+const authrocket = new AuthRocket({
+  locale: 'es'
+})
+```
+
 
 ### Direct configuration
 
@@ -84,7 +92,8 @@ const authrocket = new AuthRocket({
   url:            'https://api-e2.authrocket.com/v2',
   realm:          'rl_SAMPLE',
   jwtKey:         'SAMPLE',
-  loginrocketUrl: 'https://SAMPLE.e2.loginrocket.com/'
+  loginrocketUrl: 'https://SAMPLE.e2.loginrocket.com/',
+  locale:         'en'
 })
 ```
 

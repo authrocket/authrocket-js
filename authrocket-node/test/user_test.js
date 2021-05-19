@@ -92,6 +92,20 @@ suite('User', ()=>{
     assert(res.token)
   })
 
+  test('authenticate w/locale', async ()=>{
+    h.client.locale = 'es'
+    let res = await h.client.users.authenticate(h.user.id, {
+      password: 'wrong'
+    })
+    assert.match(res.errorMessages(), /Error al iniciar sesión/)
+
+    h.client.locale = null
+    res = await h.client.users.authenticate(h.user.id, {
+      password: 'wrong'
+    })
+    assert.match(res.errorMessages(), /Login failed/)
+  })
+
   test('request email verification', async ()=>{
     let res = await h.client.users.requestEmailVerification(h.user.id)
     assert.noErrors(res)
