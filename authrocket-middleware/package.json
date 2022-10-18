@@ -15,11 +15,11 @@
   "author": "AuthRocket Team",
   "repository": {
     "type": "git",
-    "url": "git://github.com/authrocket/authrocket-node",
+    "url": "git://github.com/authrocket/authrocket-js",
     "directory": "tree/master/authrocket-middleware"
   },
   "bugs": {
-    "url": "https://github.com/authrocket/authrocket-node/issues"
+    "url": "https://github.com/authrocket/authrocket-js/issues"
   },
   "engines": {
     "node": ">=10"
