@@ -1,6 +1,6 @@
 {
   "name": "@authrocket/authrocket-node",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "license": "MIT",
   "description": "AuthRocket library for Node",
@@ -28,12 +28,12 @@
     "lib/*.js"
   ],
   "dependencies": {
-    "axios": "~0.21.0",
+    "axios": "^1",
     "jsrsasign": "^10"
   },
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^8"
+    "mocha": "^10"
   },
   "scripts": {
     "test": "mocha ./test/setup.js './test/*test.js'"
