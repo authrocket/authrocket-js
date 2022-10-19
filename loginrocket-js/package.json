@@ -1,0 +1,39 @@
+{
+  "name": "@authrocket/loginrocket-js",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "description": "[AuthRocket] LoginRocket library for browsers",
+  "keywords": [
+    "authrocket",
+    "auth",
+    "authentication",
+    "api",
+    "loginrocket"
+  ],
+  "homepage": "https://authrocket.com/",
+  "author": "AuthRocket Team",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/authrocket/authrocket-js",
+    "directory": "tree/master/loginrocket-js"
+  },
+  "bugs": {
+    "url": "https://github.com/authrocket/authrocket-js/issues"
+  },
+  "main": "lib/loginrocket.js",
+  "type": "module",
+  "files": [
+    "lib/*.js"
+  ],
+  "dependencies": {
+    "axios": "^1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^10"
+  },
+  "scripts": {
+    "test": "mocha ./test/setup.js './test/*test.js'"
+  }
+}
