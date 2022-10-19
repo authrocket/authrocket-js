@@ -53,10 +53,9 @@ class AuthRocket {
       'Authrocket-Api-Key': config.apiKey
     }
     this.locale = config.locale
+    this.defaultRealm = config.realm
     if (config.service)
       this.config.headers['Authrocket-Service'] = config.service
-    if (config.realm)
-      this.config.headers['Authrocket-Realm'] = config.realm
 
     if (config.url)
       this.config.url = config.url[-1] == '/' ? config.url : config.url+'/'
@@ -75,7 +74,10 @@ class AuthRocket {
   }
 
   set defaultRealm(realmId) {
-    this.config.headers['Authrocket-Realm'] = realmId
+    if (realmId)
+      this.config.headers['Authrocket-Realm'] = realmId
+    else
+      delete this.config.headers['Authrocket-Realm']
   }
 
   set locale(locale) {

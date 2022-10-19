@@ -1,3 +1,7 @@
+#### 1.1.1
+
+- Improve setting Realm to a blank value
+
 #### 1.1.0
 
 - Add locale support
