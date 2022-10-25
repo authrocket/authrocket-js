@@ -1,7 +1,10 @@
 {
-  "name": "@authrocket/loginrocket-js",
+  "name": "@authrocket/loginrocket",
   "version": "1.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "description": "[AuthRocket] LoginRocket library for browsers",
   "keywords": [
@@ -21,8 +24,14 @@
   "bugs": {
     "url": "https://github.com/authrocket/authrocket-js/issues"
   },
-  "main": "lib/loginrocket.js",
+  "engines": {
+    "node": ">=14"
+  },
   "type": "module",
+  "module": "./lib/loginrocket.js",
+  "exports": {
+    ".": "./lib/loginrocket.js"
+  },
   "files": [
     "lib/*.js"
   ],
@@ -30,6 +39,7 @@
     "axios": "^1"
   },
   "devDependencies": {
+    "@skypack/package-check": "^0.2.2",
     "chai": "^4.3.4",
     "mocha": "^10"
   },

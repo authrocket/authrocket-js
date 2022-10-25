@@ -2,20 +2,20 @@
 
 [AuthRocket](https://authrocket.com/) provides Auth as a Service, making it quick and easy to add signups, logins, social auth, a full user management UI, and much more to your app.
 
-The `loginrocket-js` library is for the LoginRocket API, which is our API for untrusted clients like web browsers and mobile apps. It does not require exposing an API key.
+The `loginrocket.js` library is for the LoginRocket API, which is our API for untrusted clients like web browsers and mobile apps. It does not require exposing an API key.
 
 For server-side apps which are able to properly protect an API key, also see `authrocket-node`.
 
-`loginrocket-js` is designed to work with a wide variety of JS frameworks, including React, Angular, Vue, Svelte, Stimulus, and even jQuery, as well as vanilla Javascript.
+`loginrocket.js` is designed to work with a wide variety of JS frameworks, including React, Angular, Vue, Svelte, Stimulus, and even jQuery, as well as vanilla Javascript.
 
 
 ## Installation
 
 If you use a bundler like `npm` or `yarn`, install the package as usual with one of:
 ```bash
-npm install @authrocket/loginrocket-js
+npm install @authrocket/loginrocket
 
-yarn add @authrocket/loginrocket-js
+yarn add @authrocket/loginrocket
 ```
 
 
@@ -26,7 +26,7 @@ yarn add @authrocket/loginrocket-js
 Start by initializing the LoginRocket client. You'll need your AuthRocket Realm's **LoginRocket URL** for this:
 
 ```js
-import { LoginRocket } from '@authrocket/loginrocket-js'
+import LoginRocket from '@authrocket/loginrocket'
 const loginrocket = new LoginRocket({
   url:    'https://SAMPLE.e2.loginrocket.com/',
   locale: 'en'

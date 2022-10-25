@@ -10,13 +10,13 @@
 import axios from 'axios'
 
 
-export class LoginRocketError extends Error {}
-export class AccessDenied extends LoginRocketError {}
-export class RateLimited extends LoginRocketError {}
-export class RecordNotFound extends LoginRocketError {}
+class LoginRocketError extends Error {}
+class AccessDenied extends LoginRocketError {}
+class RateLimited extends LoginRocketError {}
+class RecordNotFound extends LoginRocketError {}
 
 
-export class LoginRocket {
+class LoginRocket {
   static VERSION = '1.0.0'
 
   constructor(params={}) {
@@ -212,3 +212,12 @@ export class LoginRocket {
   }
 
 }
+
+export {
+  AccessDenied,
+  LoginRocket,
+  LoginRocketError,
+  RateLimited,
+  RecordNotFound
+}
+export default LoginRocket
