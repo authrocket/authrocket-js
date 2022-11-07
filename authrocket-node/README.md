@@ -54,7 +54,7 @@ Your AuthRocket API key. Required to use the API (but not if only performing JWT
 Used to perform JWT signing verification of login tokens. Not required if validating all tokens using the API instead. Also not required if LOGINROCKET_URL is set and RS256 keys are being used, as public keys will be auto-retrieved. This is a realm-specific value, so like `AUTHROCKET_REALM`, set it directly if using multiple realms (see below).
 
 `AUTHROCKET_REALM = rl_SAMPLE`
-Sets an application-wide default realm ID. If you're using a single realm, this is definitely easiest. Certain multi-tenant apps might using multiple realms. In this case, don't set this globally, but directly when constructing the client (see below).
+Sets an application-wide default realm ID. If you're using a single realm, this is definitely easiest. Certain multi-tenant apps might use multiple realms. In this case, don't set this globally, but directly when constructing the client (see below).
 
 `AUTHROCKET_URL = https://api-e2.authrocket.com/v2`
 The URL of the AuthRocket API server. This may vary depending on which cluster your service is provisioned on.
@@ -106,8 +106,9 @@ If `jwtKey` is an RSA key (starts with 'MIIB' or with 'PUBLIC KEY'), it is also 
 
 Documentation is provided on our site:
 
-* [Node Integration Guide](https://authrocket.com/docs/integration/node)
-* [API Documentation with Node examples](https://authrocket.com/docs/api/users)
+* [Node.js Integration Guide](https://authrocket.com/docs/integration/node)
+* [Node.js SDK Docs](https://authrocket.com/docs/sdks/node) (Expands on this README)
+* [API Docs with Node.js examples](https://authrocket.com/docs/api#core-api)
 
 
 ## Contributing

@@ -42,7 +42,7 @@ app.use(arMiddleware({
 app.use('/logout', fullLogout)
 ```
 
-`loginrocketUrl` will be unique to your app and is available in the AuthRocket management portal at Realm -> Integration -> Using LoginRocket.
+`loginrocketUrl` will be unique to your app and is available in the AuthRocket management portal at Realm -> Integration -> LoginRocket Web.
 
 Alternatively, you may use an environment variable instead:
 
@@ -210,7 +210,10 @@ On the backend, `authrocket-middleware` will automatically detect bearer tokens 
 
 Documentation is provided on our site:
 
-* [Node Integration Guide](https://authrocket.com/docs/integration/node)
+* [Node.js + Express Integration Guide](https://authrocket.com/docs/integration/express)
+* [Express/middleware SDK Docs](https://authrocket.com/docs/sdks/express) (Expands on this README)
+* [Node.js SDK Docs](https://authrocket.com/docs/sdks/node)
+* [API Docs with Node.js examples](https://authrocket.com/docs/api#core-api)
 
 
 ## Contributing

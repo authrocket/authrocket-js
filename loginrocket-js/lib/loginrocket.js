@@ -3,6 +3,7 @@
  * Copyright 2022 Notioneer, Inc.
  * https://authrocket.com/
  *
+ * Library docs: https://authrocket.com/docs/sdks/js
  * API docs    : https://authrocket.com/docs/api/loginrocket
  */
 

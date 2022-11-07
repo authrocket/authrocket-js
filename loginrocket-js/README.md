@@ -40,7 +40,9 @@ const loginrocket = new LoginRocket({
 
 Documentation is provided on our site:
 
-* [LoginRocket API Documentation](https://authrocket.com/docs/api/loginrocket)
+* [LoginRocket.js Integration Guide](https://authrocket.com/docs/integration/js)
+* [Loginrocket.js SDK Docs](https://authrocket.com/docs/sdks/js) (Expands on this README)
+* [LoginRocket API Docs with examples](https://authrocket.com/docs/api/loginrocket)
 
 
 ## Contributing
