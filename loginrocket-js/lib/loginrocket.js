@@ -1,6 +1,7 @@
 /*!
  * AuthRocket JavaScript Library - loginrocket.js
- * Copyright 2022 Notioneer, Inc.
+ * @copyright Notioneer, Inc.
+ * @license MIT
  * https://authrocket.com/
  *
  * Library docs: https://authrocket.com/docs/sdks/js
