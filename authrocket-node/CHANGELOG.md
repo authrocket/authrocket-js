@@ -1,5 +1,6 @@
 #### 1.1.2
 
+- Remove ';' from consolidated error messages
 - Add license to .js
 
 #### 1.1.1

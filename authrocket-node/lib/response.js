@@ -41,7 +41,7 @@ class Response {
   }
 
   errorMessages() {
-    return this.errors.join('; ')
+    return this.errors.join(' ')
   }
 
   hasMore() {
