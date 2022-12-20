@@ -1,3 +1,10 @@
+/*!
+ * AuthRocket library for Node.js
+ * @copyright Notioneer, Inc.
+ * @license MIT
+ * https://authrocket.com/
+ */
+
 /*
   usage:
 

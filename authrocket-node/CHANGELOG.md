@@ -1,3 +1,7 @@
+#### 1.1.2
+
+- Add license to .js
+
 #### 1.1.1
 
 - Improve setting Realm to a blank value
