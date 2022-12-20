@@ -1,3 +1,10 @@
+/*!
+ * AuthRocket middleware for Express
+ * @copyright Notioneer, Inc.
+ * @license MIT
+ * https://authrocket.com/
+ */
+
 /*
 usage - install middleware:
   const { arMiddleware } = require('./authrocket-middleware')
