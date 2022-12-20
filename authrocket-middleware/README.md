@@ -29,7 +29,10 @@ Next, add the middleware to your app (most commonly in `app.js`).
 
 ```js
 // add this near the top with the rest of your require() statements:
-const { arMiddleware, fullLogout, requireLogin } = require('@authrocket/authrocket-middleware')
+const { arMiddleware, cookieParser, fullLogout, requireLogin } = require('@authrocket/authrocket-middleware')
+
+// ensure this is in your middleware list (anywhere before arMiddleware):
+app.use(cookieParser())
 
 // add this at the end of your middleware list, and *before* your routes:
 app.use(arMiddleware({
@@ -191,7 +194,9 @@ arMiddleware({
 
 #### Cookies
 
-`authrocket-middleware` uses a cookie called `arToken` to persist the token. This requires the `cookie-parser` plugin, but nothing else. Customize the settings using `cookie` or `cookieOptions` as described above.
+`authrocket-middleware` uses a cookie called `arToken` to persist the token. This uses the `cookie-parser` plugin. arMiddleware imports this for you (you may also import your own version directly), but you still need to enable it. Customize the settings using `cookie` or `cookieOptions` as described above.
+
+If disabling cookies with `cookie: false` (see above), `cookieParser` may also be skipped. This is generally only appropriate for API-only apps (see below).
 
 
 ## Building an API app

@@ -26,6 +26,7 @@ usage - require a login:
 
 */
 
+const cookieParser = require('cookie-parser')
 const { AuthRocket } = require('@authrocket/authrocket-node')
 const arRequest = require('./request')
 
@@ -123,6 +124,7 @@ function arMiddleware(options) {
 
 module.exports = {
   arMiddleware,
+  cookieParser,
   fullLogout,
   localLogout,
   requireLogin,
