@@ -1,6 +1,6 @@
-const Resource = require('./resource')
+import Resource from './resource.js'
 
-class User extends Resource {
+export default class User extends Resource {
 
   constructor(client) {
     super(client)
@@ -97,5 +97,3 @@ class User extends Resource {
     return this.client.post(path, params)
   }
 }
-
-module.exports = User

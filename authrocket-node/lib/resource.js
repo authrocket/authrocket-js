@@ -1,7 +1,7 @@
-const { RecordNotFound } = require('./authrocket')
-const Response = require('./response')
+import { RecordNotFound } from './authrocket.js'
+import Response from './response.js'
 
-class Resource {
+export default class Resource {
 
   constructor(client) {
     this.client = client
@@ -87,5 +87,3 @@ class Resource {
   }
 
 }
-
-module.exports = Resource

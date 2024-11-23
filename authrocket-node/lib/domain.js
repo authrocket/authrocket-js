@@ -1,6 +1,6 @@
-const Resource = require('./resource')
+import Resource from './resource.js'
 
-class Domain extends Resource {
+export default class Domain extends Resource {
 
   constructor(client) {
     super(client)
@@ -9,5 +9,3 @@ class Domain extends Resource {
   }
 
 }
-
-module.exports = Domain

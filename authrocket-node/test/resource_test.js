@@ -1,7 +1,9 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
-const { AuthRocket, RecordNotFound } = require('../lib/authrocket')
-const Resource = require('../lib/resource')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
+import { AuthRocket, RecordNotFound } from '../lib/authrocket.js'
+import Resource from '../lib/resource.js'
 
 
 suite('Resource', ()=>{
@@ -12,7 +14,7 @@ suite('Resource', ()=>{
 
 
   test('null find', (done)=>{
-    r = new Resource(h.client)
+    let r = new Resource(h.client)
     const promise = r.find(null)
       .then(()=>{ done('should have failed') })
       .catch((e)=>{
@@ -23,7 +25,7 @@ suite('Resource', ()=>{
   })
 
   test('null update', (done)=>{
-    r = new Resource(h.client)
+    let r = new Resource(h.client)
     const promise = r.update(null)
       .then(()=>{ done('should have failed') })
       .catch((e)=>{
@@ -34,7 +36,7 @@ suite('Resource', ()=>{
   })
 
   test('null delete', (done)=>{
-    r = new Resource(h.client)
+    let r = new Resource(h.client)
     const promise = r.delete(null)
       .then(()=>{ done('should have failed') })
       .catch((e)=>{

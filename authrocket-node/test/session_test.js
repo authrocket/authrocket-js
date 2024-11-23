@@ -1,8 +1,10 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
-const { AuthRocketError } = require('../lib/authrocket')
-const Response = require('../lib/response')
-const { KEYUTIL } = require('jsrsasign')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
+import { AuthRocketError } from '../lib/authrocket.js'
+import Response from '../lib/response.js'
+import { KEYUTIL } from 'jsrsasign'
 
 
 suite('Session', ()=>{
@@ -120,7 +122,7 @@ suite('Session', ()=>{
   })
 
   test('delete', async ()=>{
-    res = await h.client.sessions.delete(h.session.id)
+    let res = await h.client.sessions.delete(h.session.id)
     assert.noErrors(res)
   })
 

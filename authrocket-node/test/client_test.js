@@ -1,5 +1,5 @@
-assert = require('chai').assert
-const { AuthRocket, AuthRocketError } = require('../lib/authrocket')
+import { assert } from 'chai'
+import { AuthRocket, AuthRocketError } from '../lib/authrocket.js'
 
 
 suite('Client', function(){

@@ -1,12 +1,12 @@
 // usage:
-//   assert = require('chai')
-//     .use(require('./assertions'))
-//     .assert
+//   import { assert, use } from 'chai'
+//   import assertions from './assertions.js'
+//   use(assertions)
 
 
-const Response = require('../lib/response')
+import Response from '../lib/response.js'
 
-module.exports = function(chai, util) {
+export default function(chai, util) {
   const assert = chai.assert
 
   assert.noErrors = function(response) {
@@ -17,5 +17,5 @@ module.exports = function(chai, util) {
   assert.matchesError = function(response, regexp) {
     assert.match(response.errorMessages(), regexp)
   }
-  
+
 }

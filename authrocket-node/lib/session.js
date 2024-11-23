@@ -1,9 +1,9 @@
-const { AuthRocketError } = require('./authrocket')
-const Resource = require('./resource')
-const Response = require('./response')
-const { KEYUTIL, KJUR, b64utoutf8 } = require('jsrsasign')
+import { AuthRocketError } from './authrocket.js'
+import Resource from './resource.js'
+import Response from './response.js'
+import { KEYUTIL, KJUR, b64utoutf8 } from 'jsrsasign'
 
-class Session extends Resource {
+export default class Session extends Resource {
 
   // reminder: expires_at and other dates are seconds, not milliseconds
   //   to convert to js date:  new Date(sess.expires_at*1000)
@@ -141,10 +141,8 @@ class Session extends Resource {
       user_id:    jwt['sub'],
       user:       user
     }
-    
+
     return new Response(session, {}, [])
   }
 
 }
-
-module.exports = Session

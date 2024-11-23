@@ -1,5 +1,7 @@
-assert = require('chai').use(require('./assertions')).assert
-const { AuthRocket } = require('../lib/authrocket')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import { AuthRocket } from '../lib/authrocket.js'
 
 class Helper {
 
@@ -191,4 +193,4 @@ class Helper {
 
 }
 
-module.exports = new Helper()
+export default new Helper()

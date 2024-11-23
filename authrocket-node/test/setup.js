@@ -1,4 +1,4 @@
-h = require('./helper')
+import h from './helper.js'
 
 
 suiteTeardown('cleanup stale realms', async ()=>{

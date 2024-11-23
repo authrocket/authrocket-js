@@ -1,4 +1,4 @@
-class Response {
+export default class Response {
 
   static parseResponse(response) {
     let data = {},
@@ -49,5 +49,3 @@ class Response {
   }
 
 }
-
-module.exports = Response

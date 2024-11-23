@@ -1,6 +1,8 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
-const { RecordNotFound } = require('../lib/authrocket')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
+import { RecordNotFound } from '../lib/authrocket.js'
 
 
 suite('Realm', ()=>{

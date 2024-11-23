@@ -1,4 +1,5 @@
 - Require Node >= 18
+- Convert to ESM
 
 #### 1.1.2
 

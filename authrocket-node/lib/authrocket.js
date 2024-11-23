@@ -25,18 +25,20 @@
 */
 
 
-const axios = require('axios')
-const Response = require('./response')
+import axios from 'axios'
+import Response from './response.js'
+import * as packageJson from '../package.json' with { type: 'json' }
 
 
-class AuthRocketError extends Error {}
-class RecordNotFound extends AuthRocketError {}
+export class AuthRocketError extends Error {}
+export class RecordNotFound extends AuthRocketError {}
+export { Response }
 
 
-class AuthRocket {
+export class AuthRocket {
 
   constructor(params={}, options={}) {
-    this.VERSION = require('../package.json').version
+    this.VERSION = packageJson.version
     let config = {}
     if (!options.skipAutoConfig) {
       config = {
@@ -200,24 +202,29 @@ class AuthRocket {
 
 }
 
-module.exports = {
-  AuthRocket,
-  AuthRocketError,
-  RecordNotFound,
-  Response
-}
 
+import authProviders from './auth_provider.js'
+import clientApps from './client_app.js'
+import credentials from './credential.js'
+import domains from './domain.js'
+import invitations from './invitation.js'
+import loginrocket from './loginrocket.js'
+import memberships from './membership.js'
+import orgs from './org.js'
+import realms from './realm.js'
+import sessions from './session.js'
+import users from './user.js'
 
 const resources = {
-  authProviders: require('./auth_provider'),
-  clientApps: require('./client_app'),
-  credentials: require('./credential'),
-  domains: require('./domain'),
-  invitations: require('./invitation'),
-  loginrocket: require('./loginrocket'),
-  memberships: require('./membership'),
-  orgs: require('./org'),
-  realms: require('./realm'),
-  sessions: require('./session'),
-  users: require('./user')
+  authProviders,
+  clientApps,
+  credentials,
+  domains,
+  invitations,
+  loginrocket,
+  memberships,
+  orgs,
+  realms,
+  sessions,
+  users
 }

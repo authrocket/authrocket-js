@@ -1,5 +1,7 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
 
 
 suite('Invitation', ()=>{
@@ -52,12 +54,12 @@ suite('Invitation', ()=>{
   })
 
   test('delete', async ()=>{
-    res = await h.client.invitations.delete(h.invitation.id)
+    let res = await h.client.invitations.delete(h.invitation.id)
     assert.noErrors(res)
   })
 
   test('invite', async ()=>{
-    res = await h.client.invitations.invite(h.invitation.id)
+    let res = await h.client.invitations.invite(h.invitation.id)
     assert.noErrors(res)
   })
 

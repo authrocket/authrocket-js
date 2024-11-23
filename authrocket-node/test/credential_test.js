@@ -1,5 +1,7 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
 
 
 suite('Credential', ()=>{
@@ -42,7 +44,7 @@ suite('Credential', ()=>{
   })
 
   test('delete', async ()=>{
-    res = await h.client.credentials.delete(h.credential.id)
+    let res = await h.client.credentials.delete(h.credential.id)
     assert.noErrors(res)
   })
 

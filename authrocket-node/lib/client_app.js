@@ -1,6 +1,6 @@
-const Resource = require('./resource')
+import Resource from './resource.js'
 
-class ClientApp extends Resource {
+export default class ClientApp extends Resource {
 
   constructor(client) {
     super(client)
@@ -9,5 +9,3 @@ class ClientApp extends Resource {
   }
 
 }
-
-module.exports = ClientApp

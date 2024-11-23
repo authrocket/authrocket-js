@@ -1,9 +1,9 @@
-const axios = require('axios')
-const Resource = require('./resource')
-const Response = require('./response')
-const { KEYUTIL } = require('jsrsasign')
+import axios from 'axios'
+import Resource from './resource.js'
+import Response from './response.js'
+import { KEYUTIL } from 'jsrsasign'
 
-class LoginRocket extends Resource {
+export default class LoginRocket extends Resource {
 
   // @private
   loadJwkSet() {
@@ -41,5 +41,3 @@ class LoginRocket extends Resource {
 }
 LoginRocket.jwkSet = {}
 // {kid => {key: RSAKey, algo: 'RS256'}, ...}
-
-module.exports = LoginRocket

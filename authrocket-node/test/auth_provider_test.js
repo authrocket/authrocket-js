@@ -1,5 +1,7 @@
-assert = require('chai').use(require('./assertions')).assert
-h = require('./helper')
+import { assert, use } from 'chai'
+import assertions from './assertions.js'
+use(assertions)
+import h from './helper.js'
 
 
 suite('AuthProvider', ()=>{

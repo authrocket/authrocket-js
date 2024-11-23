@@ -28,7 +28,7 @@ pnpm add @authrocket/authrocket-node
 If you are using environment variables to manage external services like AuthRocket, then it's very easy to initialize the AuthRocket client:
 
 ```js
-const { AuthRocket } = require('@authrocket/authrocket-node')
+import { AuthRocket } from '@authrocket/authrocket-node'
 const authrocket = new AuthRocket()
 ```
 
@@ -88,7 +88,7 @@ const authrocket = new AuthRocket({
 It's also possible to directly configure all AuthRocket client instance options:
 
 ```js
-const { AuthRocket } = require('@authrocket/authrocket-node')
+import { AuthRocket } from '@authrocket/authrocket-node'
 const authrocket = new AuthRocket({
   apiKey:         'ks_SAMPLE',
   url:            'https://api-e2.authrocket.com/v2',

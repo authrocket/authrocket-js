@@ -1,6 +1,6 @@
-const Resource = require('./resource')
+import Resource from './resource.js'
 
-class Credential extends Resource {
+export default class Credential extends Resource {
 
   constructor(client) {
     super(client)
@@ -20,5 +20,3 @@ class Credential extends Resource {
   }
 
 }
-
-module.exports = Credential
