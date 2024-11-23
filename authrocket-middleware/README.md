@@ -20,6 +20,8 @@ Depending on your package manager, run one of:
 npm install @authrocket/authrocket-middleware
 
 yarn add @authrocket/authrocket-middleware
+
+pnpm add @authrocket/authrocket-middleware
 ```
 
 
@@ -178,7 +180,7 @@ arMiddleware({
   //   to `new AuthRocket({...})` when using `authrocket-node`.
   authrocket: { ... },
 
-  // Disables storage of token in cookies. 
+  // Disables storage of token in cookies.
   // cookie: false,
 
   // Change the default settings used to create the token-storing cookie.

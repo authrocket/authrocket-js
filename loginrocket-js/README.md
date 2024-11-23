@@ -11,11 +11,13 @@ For server-side apps which are able to properly protect an API key, also see `au
 
 ## Installation
 
-If you use a bundler like `npm` or `yarn`, install the package as usual with one of:
+If you use a package manager, install as usual with one of:
 ```bash
 npm install @authrocket/loginrocket
 
 yarn add @authrocket/loginrocket
+
+pnpm add @authrocket/loginrocket
 ```
 
 

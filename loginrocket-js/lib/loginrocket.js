@@ -19,7 +19,7 @@ class RecordNotFound extends LoginRocketError {}
 
 
 class LoginRocket {
-  static VERSION = '1.0.0'
+  static VERSION = '1.0.1'
 
   constructor(params={}) {
     this.config = {

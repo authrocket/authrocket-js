@@ -9,13 +9,15 @@ See also `authrocket-middleware` for our streamlined integration with Express an
 
 ## Installation
 
-The library is designed to be installed using `npm` or `yarn`.
+The library is designed to be installed using your package manager.
 
 For installation, run one of:
 ```bash
 npm install @authrocket/authrocket-node
 
 yarn add @authrocket/authrocket-node
+
+pnpm add @authrocket/authrocket-node
 ```
 
 

@@ -1,4 +1,4 @@
-Copyright (c) 2020-2022 Notioneer, Inc.
+Copyright (c) 2020-2024 Notioneer, Inc.
 
 MIT License
 
