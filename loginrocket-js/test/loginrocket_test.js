@@ -1,7 +1,8 @@
-import chai from 'chai'
+import { assert, use } from 'chai'
 import assert1 from '../../authrocket-node/test/assertions.js'
+use(assert1)
 import assert2 from './assertions.js'
-const assert = chai.use(assert1).use(assert2).assert
+use(assert2)
 import ar from '../../authrocket-node/test/helper.js'
 import lr from './helper.js'
 

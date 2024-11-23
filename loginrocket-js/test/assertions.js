@@ -1,7 +1,7 @@
 // usage:
-//   import chai from 'chai'
+//   import { assert, use } from 'chai'
 //   import a1 from './assertions.js'
-//   const assert = chai.use(a1).assert
+//   use(a1)
 
 
 export default function(chai, util) {
