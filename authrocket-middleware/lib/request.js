@@ -1,4 +1,4 @@
-class arRequest {
+export default class arRequest {
 
   constructor(p) {
     this.arClient      = p.authrocket
@@ -9,7 +9,7 @@ class arRequest {
   }
 
   get currentMembership() {
-    if (!this.currentUser) 
+    if (!this.currentUser)
       return
     return this.currentUser.memberships.find(m => m.selected) || this.currentUser.memberships[0]
   }
@@ -131,5 +131,3 @@ class arRequest {
   }
 
 }
-
-module.exports = arRequest

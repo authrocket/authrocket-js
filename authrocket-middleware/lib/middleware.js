@@ -7,13 +7,13 @@
 
 /*
 usage - install middleware:
-  const { arMiddleware } = require('./authrocket-middleware')
+  import { arMiddleware } from '@authrocket/authrocket-middleware'
   app.use(arMiddleware({
     // options
   }))
 
 usage - require a login:
-  const { requireLogin } = require('../authrocket-middleware')
+  import { requireLogin } from '@authrocket/authrocket-middleware'
   // in manage.js (all child endpoints):
     router.use(requireLogin)
   // single endpoint:
@@ -26,9 +26,9 @@ usage - require a login:
 
 */
 
-const cookieParser = require('cookie-parser')
-const { AuthRocket } = require('@authrocket/authrocket-node')
-const arRequest = require('./request')
+import cookieParser from 'cookie-parser'
+import { AuthRocket } from '@authrocket/authrocket-node'
+import arRequest from './request.js'
 
 
 function fullLogout(req, res, next) {
@@ -122,7 +122,7 @@ function arMiddleware(options) {
 }
 
 
-module.exports = {
+export {
   arMiddleware,
   cookieParser,
   fullLogout,

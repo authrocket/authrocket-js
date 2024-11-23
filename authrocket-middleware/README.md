@@ -30,8 +30,8 @@ pnpm add @authrocket/authrocket-middleware
 Next, add the middleware to your app (most commonly in `app.js`).
 
 ```js
-// add this near the top with the rest of your require() statements:
-const { arMiddleware, cookieParser, fullLogout, requireLogin } = require('@authrocket/authrocket-middleware')
+// add this near the top with the rest of your import statements:
+import { arMiddleware, cookieParser, fullLogout, requireLogin } from '@authrocket/authrocket-middleware'
 
 // ensure this is in your middleware list (anywhere before arMiddleware):
 app.use(cookieParser())
@@ -100,8 +100,8 @@ app.use('/admin', adminRouter)
 
 Then to `admin.js`, you'll add this:
 ```js
-// ...existing require() statements
-const { requireLogin } = require('@authrocket/authrocket-middleware')
+// ...existing import statements
+import { requireLogin } from '@authrocket/authrocket-middleware'
 router.use(requireLogin)
 
 // ...router.get('/', ...)
@@ -159,13 +159,13 @@ By default, visiting `/logout` will log the user out of both your app *and* Logi
 
 To do this, simply change this:
 
-    const { fullLogout } = require('@authrocket/authrocket-middleware')
+    import { fullLogout } from '@authrocket/authrocket-middleware'
     ...
     app.use('/logout', fullLogout)
 
 to this:
 
-    const { localLogout } = require('@authrocket/authrocket-middleware')
+    import { localLogout } from '@authrocket/authrocket-middleware'
     ...
     app.use('/logout', localLogout)
 
