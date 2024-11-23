@@ -25,7 +25,7 @@
     "url": "https://github.com/authrocket/authrocket-js/issues"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "main": "lib/authrocket.js",
   "files": [

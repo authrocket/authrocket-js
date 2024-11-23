@@ -26,7 +26,7 @@
     "url": "https://github.com/authrocket/authrocket-js/issues"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "type": "module",
   "module": "./lib/loginrocket.js",

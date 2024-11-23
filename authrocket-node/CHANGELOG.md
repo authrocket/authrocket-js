@@ -1,3 +1,5 @@
+- Require Node >= 18
+
 #### 1.1.2
 
 - Remove ';' from consolidated error messages

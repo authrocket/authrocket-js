@@ -1,3 +1,5 @@
+- Require Node >= 18
+
 #### 1.1.0
 
 - Depend directly on cookie-parser and streamline its import
